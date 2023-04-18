@@ -25,13 +25,38 @@ form.addEventListener('submit', event => {
 function calculateTime(day, month, year) {
   const today = new Date();
   const birthDate = new Date(year, month - 1, day);
-  const diffTime = today.getTime() - birthDate.getTime();
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  const years = Math.floor(diffDays / 365);
-  const months = Math.floor((diffDays - years * 365) / 30);
-  const days = diffDays - years * 365 - months * 30;
+
+  const diffTime = calculateDiffTime(today, birthDate);
+
+  const totalNumberOfDays = calculateNumberTotalOfDays(diffTime);
+
+  const years = calculateNumberOfYears(totalNumberOfDays);
+
+  const months = calculateNumbertOfMonths(totalNumberOfDays, years);
+
+  const days = calculateNumbertOfDays(totalNumberOfDays, years, months);
 
   return [days, months, years];
+}
+
+function calculateDiffTime(today, birthDate) {
+  return today.getTime() - birthDate.getTime();
+}
+
+function calculateNumberTotalOfDays(diffTime) {
+  return Math.floor(diffTime / (1000 * 60 * 60 * 24));
+}
+
+function calculateNumberOfYears(totalNumberOfDays) {
+  return Math.floor(totalNumberOfDays / 365);
+}
+
+function calculateNumbertOfMonths(totalNumberOfDays, years) {
+  return Math.floor((totalNumberOfDays - years * 365) / 30);
+}
+
+function calculateNumbertOfDays(totalNumberOfDays, years, months) {
+  return totalNumberOfDays - years * 365 - months * 30;
 }
 
 // // Select all invalid inputs
