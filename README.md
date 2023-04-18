@@ -1,6 +1,6 @@
 # Frontend Mentor - Age Calculator App
 
-This is a solution to the [Stats preview card component](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q/hub)
+This is a solution to the [Stats preview card component](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q)
 
 ## Table of contents
 
